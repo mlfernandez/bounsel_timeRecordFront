@@ -1,0 +1,59 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+
+.navbar {
+    background-color: #f8f9fa !important;
+    margin-bottom: 2em !important;
+}
+
+.logo {
+    margin: 0.5em;
+}
+.mlf-logo-bracket {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 20px !important;
+    color: #4c1fd1 !important;
+}
+
+.mlf-logo {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: black !important;
+}
+
+.mlf-more-space {
+    margin-right: em !important;
+}
+
+
+.mlf-btn-color {
+    background-color: #f8f9fa !important;
+    border-color: black !important;
+    color: black !important;
+
+    &:hover {
+        background-color: #4c1fd1 !important;
+        color: black !important;
+    }
+}
+
+.mlf-btn-color-solid {
+    background-color: black !important;
+    border-color: black !important;
+    color: white !important;
+
+    &:hover {
+        background-color: #4c1fd1 !important;
+        color: black !important;
+    }
+
+}
+
+.blank {
+    width: 15em;
+}
+
+.mlf-right {
+    width: 30em !important;
+}

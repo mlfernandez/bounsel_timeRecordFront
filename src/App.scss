@@ -1,0 +1,24 @@
+@import 'scss/variables.scss';
+@import 'containers/Home/Home';
+@import 'containers/Login/Login';
+@import 'containers/DataContainer/DataContainer.scss';
+@import 'components/Navbar/Navbar.scss';
+@import 'components/ViewProfile/ViewProfile.scss';
+
+
+
+
+
+.App {
+  text-align: center;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: black;
+}
+
