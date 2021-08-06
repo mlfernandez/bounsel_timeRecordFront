@@ -100,17 +100,11 @@ const startRecord = () => {
 
     let startTime = moment(Date.now()).format()
     console.log(startTime)
-    window.localStorage.setItem("date", JSON.stringify(startTime));
+    window.localStorage.setItem("dateStart", JSON.stringify(startTime));
     alert(startTime)
 }
 
-    // guarda el fin del registro de tiempo
-const endRecord = () => {
 
-    let endTime = Date.now();
-    
-
-}
 
     return (
 

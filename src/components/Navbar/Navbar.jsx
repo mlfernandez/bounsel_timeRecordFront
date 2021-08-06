@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { LOGOUT, GETPROFILE, GETPROJECT } from '../../redux/types';
 import { useHistory } from 'react-router-dom';
 import Timer from '../Timer/Timer';
+import moment from 'moment';
+import axios from 'axios';
 
 
 
@@ -14,26 +16,36 @@ const Navbar = (props) => {
   let history = useHistory();
 
 
-/*   const takeMe = (where) => {
-    history.push(where);
-  }
- */
-
     // Logout
-  const logOut = () => {
+  const logOut = async() => {
 
     let mensaje = "Hasta pronto " + props.credentials.user.name
 
     notification.success({message:'¡Hasta luego!',description: mensaje});
 
-    props.dispatch({ type: LOGOUT });
-    
-/*     props.dispatch({ type: LOGOUTTIPODATOS });
-    props.dispatch({ type: DELETE }); */
+    endRecord()
 
-/*     setTimeout(() => {
-      history.push('/datacontainer');
-    }, 1) */
+    // esto guardo en la api
+
+    let start = (localStorage.getItem("dateStart"));
+    let end =  (localStorage.getItem("dateEnd"));
+
+    let body = {
+      startTime : moment(start).format(),
+      endTime : moment(end).format(),
+      idUser : props.credentials.user.id
+    }
+
+    console.log(body)
+
+    var res = await axios.post('http://localhost:3006/record', body);
+    console.log(res)
+
+    console.log(localStorage.getItem("dateStart"))
+    console.log(localStorage.getItem("dateEnd"))
+
+    props.dispatch({ type: LOGOUT });
+  
 
     setTimeout(() => {
       history.push('/');
@@ -41,6 +53,20 @@ const Navbar = (props) => {
 
   }
 
+
+      // guarda el fin del registro de tiempo
+const endRecord = () => {
+
+/*   let endTime = moment(Date.now()).format()
+
+ */  
+
+  let endTime = Date.now()
+  console.log(endTime)
+  window.localStorage.setItem("dateEnd", JSON.stringify(endTime));
+  
+
+}
 
   const cambiaDatos = async (info) => {
     switch (info) {
