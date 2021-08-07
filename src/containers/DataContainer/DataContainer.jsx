@@ -1,49 +1,52 @@
-import React from 'react';
-import './DataContainer.scss';
+
 import { connect } from 'react-redux';
-import ViewProfile from '../../components/ViewProfile/ViewProfile';
+import React, { useState } from "react";
+import './DataContainer.scss';
+import PhotoProfile from '../../images/profilePhoto.png'
 
 
 
 const DataContainer = (props) => {
+       
+        //Hooks
+        // eslint-disable-next-line
+        const [profile, setProfile] = useState([]); 
+        // eslint-disable-next-line
+        const [datosUser, setDatosUser] = useState(
+            {
+                name : props.credentials.user.name,
+                lastName: props.credentials.user.lastName,
+                lastName2: props.credentials.user.lastName2,
+                email: props.credentials.user.email,
+                password: props.credentials.user.password,
+                password2: props.credentials.user.password2,
+        });        
 
-    const changeView = () => {
-        switch (props.views) {
 
+    let user = props.credentials.user;   
 
-            case 'getprofile':
+        return (
+            
+            <div class="container">
 
-                return <ViewProfile/>              
-                             
-            case 'getuser':
+                <div class="row row-cols-2">
 
-                return  
-    
-    
-            default:
+                    <div class="col mlf-photoProfile">
+                        <img className="img-thumbnail mlf-photoProfile" alt="profilePhoto" src={PhotoProfile} width="30%"></img>
+                    </div>
+                    <div class="col">
+                        <div class="viewProfileHi">¡Hola {user.name}!</div>
+                        <br />
+                        <div class="text"><h5>Este es tu perfil público.</h5></div>
+                        <div class="text"><h5>Recuerda que puedes consultar tus registros de tiempo.</h5></div>
+                    </div>  
+                </div>
 
-                return 
-        }
-
+            </div>
+        )
     }
 
-    return (
-        <div>
 
-            <div>
-            
-                <div className="datos">
-                    {changeView()}
-                </div>
-            </div>
-
-
-        </div>
-    )
-
-}
-
-export default connect((state) => ({
-    user: state.credentials.user,
-    views: state.views
+export default connect((state)=>({
+    credentials:state.credentials,
 }))(DataContainer);

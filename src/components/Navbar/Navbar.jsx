@@ -2,19 +2,15 @@ import React from 'react';
 import {notification} from 'antd';
 import './Navbar.scss';
 import { connect } from 'react-redux';
-import { LOGOUT, GETPROFILE, GETPROJECT } from '../../redux/types';
+import { LOGOUT, GETPROFILE, GETRECORD } from '../../redux/types';
 import { useHistory } from 'react-router-dom';
-import Timer from '../Timer/Timer';
-import moment from 'moment';
-import axios from 'axios';
+import endTimeRecord from '../../utils';
 
 
 
 const Navbar = (props) => {
 
-
   let history = useHistory();
-
 
     // Logout
   const logOut = async() => {
@@ -23,26 +19,8 @@ const Navbar = (props) => {
 
     notification.success({message:'¡Hasta luego!',description: mensaje});
 
-    endRecord()
+    endTimeRecord(props.credentials.user.id)
 
-    // esto guardo en la api
-
-    let start = (localStorage.getItem("dateStart"));
-    let end =  (localStorage.getItem("dateEnd"));
-
-    let body = {
-      startTime : moment(start).format(),
-      endTime : moment(end).format(),
-      idUser : props.credentials.user.id
-    }
-
-    console.log(body)
-
-    var res = await axios.post('http://localhost:3006/record', body);
-    console.log(res)
-
-    console.log(localStorage.getItem("dateStart"))
-    console.log(localStorage.getItem("dateEnd"))
 
     props.dispatch({ type: LOGOUT });
   
@@ -54,20 +32,6 @@ const Navbar = (props) => {
   }
 
 
-      // guarda el fin del registro de tiempo
-const endRecord = () => {
-
-/*   let endTime = moment(Date.now()).format()
-
- */  
-
-  let endTime = Date.now()
-  console.log(endTime)
-  window.localStorage.setItem("dateEnd", JSON.stringify(endTime));
-  
-
-}
-
   const cambiaDatos = async (info) => {
     switch (info) {
 
@@ -76,8 +40,8 @@ const endRecord = () => {
 
             break;
 
-        case "getproject":
-            props.dispatch({ type: GETPROJECT, payload: info });
+        case "getrecord":
+            props.dispatch({ type: GETRECORD, payload: info });
 
             break;
 
@@ -153,15 +117,12 @@ const endRecord = () => {
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
                   <div class="navbar-item">
-                    <div className="logo">
-                      <a class="mlf-logo"></a> 
-                      <Timer/>
-                    </div>
+
                     <div class="buttons">
                       <a class="button is-primary mlf-btn-color" type="button"  onClick={()=>logOut()} to="/">
                           <strong>Cerrar sesión</strong>
                       </a>
-                      <a class="button is-light mlf-btn-color-solid" type="button" onClick={() => cambiaDatos("getproject")}>
+                      <a class="button is-light mlf-btn-color-solid" type="button" onClick={() => history.push('/records')}>
                           Mis Registros
                       </a>
                     </div>

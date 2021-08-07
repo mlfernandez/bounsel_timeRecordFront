@@ -6,10 +6,10 @@ import {connect} from 'react-redux';
 import {LOGIN} from '../../redux/types'
 import {notification} from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import './Login.scss';
 import 'antd/dist/antd.css';
-import moment from 'moment';
+
 
 
 
@@ -20,7 +20,7 @@ const Login = (props) => {
 
     //Hooks
     const [credentials, setCredentials] = useState({email:'', password:''});
-    const [timeStart, setTimeStart] = useState({starTime:''});
+    // eslint-disable-next-line
     const [msgError, setMensajeError] = useState('');
     
     //Handle
@@ -38,11 +38,12 @@ const Login = (props) => {
         return () => {
             document.removeEventListener("keydown", listener);
         };
+        // eslint-disable-next-line
     },[credentials]);
+
 
     const logueame = async () => {
 
-        console.log("estoy aca")
 
         //Primero, testeamos los datos
             
@@ -98,10 +99,10 @@ const Login = (props) => {
         // guarda el inicio del registro del tiempo
 const startRecord = () => {
 
-    let startTime = moment(Date.now()).format()
-    console.log(startTime)
-    window.localStorage.setItem("dateStart", JSON.stringify(startTime));
-    alert(startTime)
+    let startTime = new Date();
+
+    window.localStorage.setItem("dateStart", startTime.toString());
+
 }
 
 
