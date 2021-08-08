@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from 'react-redux';
 import './Home.scss';
-import endTimeRecord from '../../utils';
-import { LOGOUT } from '../../redux/types';
 
 
 const Home = (props) => {
@@ -21,7 +19,7 @@ const Home = (props) => {
                 <h1>   Esta es una prueba técnica para <strong>Bounsel</strong>,</h1>
                 <h1>realizada por <strong>Mariana Fernández Sacristan</strong>.</h1>
                 <br />
-                <h1>Para acceder a la aplicación y consultar tus registros tienes que logearte.</h1>
+                <h1>Para acceder a la aplicación y consultar tus registros tienes que loguearte.</h1>
             </div>
         
         );

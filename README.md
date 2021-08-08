@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<a name="top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center" >Frontend timeRecord</h1>
 
-In the project directory, you can run:
 
-### `npm start`
+<br/>
+<br/>
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+:speech_balloon: [About](#id1)   
 
-### `npm test`
+:hammer: [Tools](#id2)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:clipboard: [Frontend](#id3)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<a name="id1"></a>
+## **About**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Frontend correspondiente a una prueba técnica de Bounsel.
 
-### `npm run eject`
+Agregar la funcionalidad nueva a una aplicación para que registre el tiempo de conexión de un usuario, desde el login hasta el logout o el cierre del browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Condiciones:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Solo una llamada a la API para obtener los registros.
+* Los registros de un usuario se deben buscar entre dos fechas.
+* Se deben ver los registros en el Frontend.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Start date:** 06 / 08 /2021
+**Deadline:** 08 / 08 / 2021
 
-## Learn More
+**Contributors:**
+* [Mariana Fernández Sacristán](https://github.com/mlfernandez)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a name="id2"></a>
 
-### Code Splitting
+## **Tools**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To create this project we worked with these tools and technologies:
 
-### Analyzing the Bundle Size
+| <img src="src/images/logovisual.png" alt="Visual" width="30"/> | Visual Studio Code |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| <img src="src/images/javascript2.png" alt="JavaScript" width="30"/> | JavaScript | 
 
-### Making a Progressive Web App
+| <img src="src/images/nodejs.png" alt="HTML5" width="30"/> | NODE JS & EXPRESS |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| <img src="src/images/axios.png" alt="AXIOS" width="30"/> | AXIOS | 
 
-### Advanced Configuration
+| <img src="src/images/git.png" alt="Git" width="30"/> | Git |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| <img src="src/images/github2.png" alt="GitHub" width="30"/> | GitHub | 
 
-### Deployment
+| <img src="src/images/react.png" alt="GitHub" width="30"/> | React | 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| <img src="src/images/redux.jpg" alt="GitHub" width="30"/> | Redux | 
 
-### `npm run build` fails to minify
+| <img src="src/images/sequelize.png" alt="GitHub" width="30"/> | Sequelize | 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| <img src="src/images/sass.png" alt="GitHub" width="30"/> | Sass | 
+
+
+
+<a name="id3"></a>
+***
+## **Frontend**
+   
+<img src="src/images/timeRecordVideo.gif" alt="video"/>
+
+Usuario login:
+email: mariana@gmail.com
+password: 123456
+
+
+
+
+
+[UP](#top)

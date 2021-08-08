@@ -1,10 +1,8 @@
 
 import { connect } from 'react-redux';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './DataContainer.scss';
 import PhotoProfile from '../../images/profilePhoto.png'
-import endTimeRecord from '../../utils';
-
 
 
 const DataContainer = (props) => {

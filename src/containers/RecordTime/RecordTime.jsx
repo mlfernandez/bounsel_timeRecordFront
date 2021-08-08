@@ -13,8 +13,6 @@ import moment from "moment";
 const RecordTime = (props) => {
        
         //Hooks
-        // eslint-disable-next-lin
-        const [newMessage, setNewMessage] = useState([]);
         const [record, setRecord] = useState([]); 
      
 // eslint-disable-next-lin
@@ -26,7 +24,6 @@ const RecordTime = (props) => {
 
     const findAllRecords = async () => {
 
-        let idUser = props.credentials.idUser;
         let startTime = document.getElementById("startTime").value;
         let endTime = document.getElementById("endTime").value;
 
@@ -65,14 +62,7 @@ const RecordTime = (props) => {
 
             </div>
             <br />
-            <div class="field">
-                <p class="control buttons is-centered">
-                    <button class="button is-success mlf-button-center-bg" onClick={()=>findAllRecords()}>
-                    Buscar
-                    </button>
-                </p>
-                <br />
-            </div>
+            
 
 
         </div>
@@ -96,13 +86,7 @@ const RecordTime = (props) => {
             </div>
 
             <br />
-            <div class="field">
-                <p class="control buttons is-centered">
-                    <button class="button is-success mlf-button-center-bg" onClick={()=>findAllRecords()}>
-                    Buscar
-                    </button>
-                </p>
-            </div>
+
 
             <table class="table">
                 <thead>
