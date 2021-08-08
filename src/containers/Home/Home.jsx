@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import './Home.scss';
+import endTimeRecord from '../../utils';
+import { LOGOUT } from '../../redux/types';
 
 
 const Home = (props) => {
+
+
+
 
 
             // Vista Home con usuario visitante
@@ -11,7 +16,12 @@ const Home = (props) => {
         return (
 
             <div className="HomeContainer">
-                ¡Hola! Para acceder a la aplicación tienes que logearte.
+                <div className="title"><strong>¡Hola!</strong> </div>
+                <br />
+                <h1>   Esta es una prueba técnica para <strong>Bounsel</strong>,</h1>
+                <h1>realizada por <strong>Mariana Fernández Sacristan</strong>.</h1>
+                <br />
+                <h1>Para acceder a la aplicación y consultar tus registros tienes que logearte.</h1>
             </div>
         
         );
@@ -21,7 +31,9 @@ const Home = (props) => {
         return(
 
             <div className="HomeContainer">
-                ¡Hola! Gracias por visitarnos, recuerda que puedes consultar tus registros.
+                <div className="title"><strong>¡Hola {props.credentials.user.name}!</strong> </div>
+                <br />
+                Gracias por visitarnos, recuerda que puedes consultar tus registros.
             </div>
         )
     }

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import {useHistory} from 'react-router-dom';
 import {notification} from 'antd';
 import './Navbar.scss';
 import { connect } from 'react-redux';
-import { LOGOUT, GETPROFILE, GETRECORD } from '../../redux/types';
-import { useHistory } from 'react-router-dom';
+import { LOGOUT } from '../../redux/types';
 import endTimeRecord from '../../utils';
 
 
@@ -11,6 +11,21 @@ import endTimeRecord from '../../utils';
 const Navbar = (props) => {
 
   let history = useHistory();
+
+// funcion guarda registro de tiempo cuando se cierra el browser
+
+  window.onbeforeunload = function(e) {
+
+
+    if (props.credentials?.token) {
+
+      endTimeRecord(props.credentials.user.id)
+      props.dispatch({ type: LOGOUT });
+
+    }
+    return ('Texto de aviso');
+    };
+
 
     // Logout
   const logOut = async() => {
@@ -32,27 +47,6 @@ const Navbar = (props) => {
   }
 
 
-  const cambiaDatos = async (info) => {
-    switch (info) {
-
-        case "getprofile":
-            props.dispatch({ type: GETPROFILE, payload: info });
-
-            break;
-
-        case "getrecord":
-            props.dispatch({ type: GETRECORD, payload: info });
-
-            break;
-
-
-        default:
-
-            break;
-        }
-  };
-
-  
 
     // Vista navbar usuario visitante
   if (props.credentials?.token === '') {
@@ -62,9 +56,9 @@ const Navbar = (props) => {
 <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div className="logo">
-        <a class="mlf-logo-bracket" href="/">[</a>
+        <a class="mlf-logo-bracket" >[</a>
         <a class="mlf-logo" href="/">Bounsel</a>
-        <a class="mlf-logo-bracket" href="/">]</a>
+        <a class="mlf-logo-bracket" >]</a>
     </div>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -99,9 +93,9 @@ const Navbar = (props) => {
         <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <div className="logo">
-                    <a class="mlf-logo-bracket" href="/">[</a>
+                    <a class="mlf-logo-bracket" >[</a>
                     <a class="mlf-logo" href="/">Bounsel</a>
-                    <a class="mlf-logo-bracket" href="/">]</a>
+                    <a class="mlf-logo-bracket" >]</a>
                 </div>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

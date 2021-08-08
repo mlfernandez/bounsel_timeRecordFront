@@ -1,38 +1,14 @@
 import './App.scss';
-import React, { useEffect } from "react";
+import React from "react";
 import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import DataContainer from './containers/DataContainer/DataContainer';
-import { connect } from 'react-redux';
-import endTimeRecord from './utils';
 import RecordTime from './containers/RecordTime/RecordTime';
 
 
-function App(props) {
-
-
-  useEffect(() => {
-    window.addEventListener('beforeunload', alertUser)
-    
-    return () => {
-      window.removeEventListener('beforeunload', alertUser)
-
-          // llamo a la funcion de guardar el registro
-    endTimeRecord(props.credentials.user.id)
-      
-    }
-  }, [])
-  
-  const alertUser = e => {
-    e.preventDefault()
-    e.returnValue = ''
-
-
-
-
-  }
+function App() {
 
 
   return (
@@ -60,5 +36,5 @@ function App(props) {
   );
 }
 
-/* export default App; */
-export default connect((state)=>({credentials:state.credentials}))(App);
+export default App;
+

@@ -12,8 +12,6 @@ import 'antd/dist/antd.css';
 
 
 
-
-
 const Login = (props) => {
 
     let history = useHistory();
@@ -45,7 +43,7 @@ const Login = (props) => {
     const logueame = async () => {
 
 
-        //Primero, testeamos los datos
+        //Primero, validamos los datos
             
         if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(credentials.email) ) {
              setMensajeError('Introduce el formato de email valido ejemplo@ejemplo.com');
@@ -58,12 +56,10 @@ const Login = (props) => {
             password : credentials.password
         }
 
-
         
-        //Axios      
+        // llamada a axios Axios      
         try {var res = await axios.post('http://localhost:3006/login', body);
            
-        console.log(res.data.user)
                
                 let data = {
                     token : res.data.token,
@@ -89,11 +85,8 @@ const Login = (props) => {
 
             } catch (err) {
                     
-                    notification.warning({message:'Atencion.',description: "Usuario o password incorrecto."});              
-                    
-                
-                }
-                    
+                    notification.warning({message:'Atencion.',description: "Usuario o password incorrecto."});                 
+                }       
     }
 
         // guarda el inicio del registro del tiempo
@@ -105,11 +98,7 @@ const startRecord = () => {
 
 }
 
-
-
     return (
-
-
         <div class="container is-max-desktop">
             <div className="loginTitle">¡Inicia sesión en tu cuenta de [ Bounsel ]!</div>
             <div class="notification is-primary mlf-login-bg">
@@ -134,10 +123,6 @@ const startRecord = () => {
                     </p>
                 </div>
 
-
-
-
-
                 <div class="field">
                     <p class="control buttons is-centered">
                         <button class="button is-success mlf-button-center-bg" onClick={()=>logueame()}>
@@ -147,11 +132,7 @@ const startRecord = () => {
                 </div>
             </div>
         </div>
-
     )
-      
-        
-    
 }
 
 export default connect()(Login);

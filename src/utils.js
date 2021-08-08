@@ -20,7 +20,10 @@ import axios from 'axios';
 
   var res = await axios.post('http://localhost:3006/record', body);
   return res
+  
 
   };
+
+  
    
   export default endTimeRecord;

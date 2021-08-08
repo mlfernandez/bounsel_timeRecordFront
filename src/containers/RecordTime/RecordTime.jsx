@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { GETRECORD } from '../../redux/types'
-import { Input, notification } from 'antd';
 import './RecordTime.scss';
 import moment from "moment";
 
@@ -14,10 +13,11 @@ import moment from "moment";
 const RecordTime = (props) => {
        
         //Hooks
+        // eslint-disable-next-lin
         const [newMessage, setNewMessage] = useState([]);
         const [record, setRecord] = useState([]); 
      
-
+// eslint-disable-next-lin
     useEffect(() => {
         findAllRecords();
       }, []);
