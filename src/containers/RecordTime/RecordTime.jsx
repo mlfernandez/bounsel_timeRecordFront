@@ -21,11 +21,21 @@ const RecordTime = (props) => {
       }, []);
 
 
+    function saveStart () {
+         
+        return document.getElementById("startTime").value;
+           }
+
+    function saveEnd () {
+
+        return document.getElementById("endTime").value;
+        
+    }
 
     const findAllRecords = async () => {
 
-        let startTime = document.getElementById("startTime").value;
-        let endTime = document.getElementById("endTime").value;
+        let startTime = saveStart()
+        let endTime = saveEnd()
 
 
         
@@ -34,6 +44,8 @@ const RecordTime = (props) => {
             endTime: endTime,
             idUser: props.credentials.idUser
         }
+
+        console.log(body)
 
         axios
             .post('http://localhost:3006/record/records/filter',body)
@@ -55,13 +67,21 @@ const RecordTime = (props) => {
             </p>
             <div className="inputBox">
                 <p>Desde</p>
-                <input class="input" id="startTime" onChange={()=>findAllRecords(document.getElementById("startTime").value)}type="date" placeholder="Fecha inicio"></input>
+                <input class="input" id="startTime" onChange={()=>saveStart(document.getElementById("startTime").value)}type="date" placeholder="Fecha inicio"></input>
 
                 <p>Hasta</p>
-                <input class="input" id="endTime" onChange={()=>findAllRecords(document.getElementById("endTime").value)} type="date" placeholder="Fecha fin"></input>
+                <input class="input" id="endTime" onChange={()=>saveEnd(document.getElementById("endTime").value)} type="date" placeholder="Fecha fin"></input>
 
             </div>
             <br />
+            <div class="field">
+                <p class="control buttons is-centered">
+                    <button class="button is-success mlf-button-center-bg" onClick={()=>findAllRecords()}>
+                    Buscar
+                    </button>
+                </p>
+                <br />
+            </div>
             
 
 
@@ -78,14 +98,22 @@ const RecordTime = (props) => {
             </p>
             <div className="inputBox">
                 <p>Desde</p>
-                <input class="input" id="startTime" onChange={()=>findAllRecords(document.getElementById("startTime").value)}type="date" placeholder="Fecha inicio"></input>
+                <input class="input" id="startTime" onChange={()=>saveStart(document.getElementById("startTime").value)}type="date" placeholder="Fecha inicio"></input>
 
                 <p>Hasta</p>
-                <input class="input" id="endTime" onChange={()=>findAllRecords(document.getElementById("endTime").value)} type="date" placeholder="Fecha fin"></input>
+                <input class="input" id="endTime" onChange={()=>saveEnd(document.getElementById("endTime").value)} type="date" placeholder="Fecha fin"></input>
 
             </div>
 
             <br />
+            <div class="field">
+                <p class="control buttons is-centered">
+                    <button class="button is-success mlf-button-center-bg" onClick={()=>findAllRecords()}>
+                    Buscar
+                    </button>
+                </p>
+                <br />
+            </div>
 
 
             <table class="table">
